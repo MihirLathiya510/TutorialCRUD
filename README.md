@@ -21,9 +21,3 @@ APIs:
 - Get all Tutorials
 -- Able to search by Title
 -- Able to sort by crated/updated date (Default updated DESC)
-=======
-Alternative branch of master root
-
-thanks.
-khatam
->>>>>>> working
