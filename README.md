@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 Project 1 :
 
 Tech: NodeJS, MongoDB
