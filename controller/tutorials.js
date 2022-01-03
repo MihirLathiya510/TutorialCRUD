@@ -4,7 +4,19 @@ const routes = require("../models/tutorials");
 
 
 exports.getTutorial = (req, res) => {
-    const tutorial =Tutorial.find().then(tutorial => {
+    var sorting=req.query.sorting;
+    if (sorting=="asc") {
+        sorting=1;    
+    }else{
+        sorting=-1;
+    }
+    var field=req.query.at;
+    if (field=="createdAt"){
+        field={"createdAt":sorting}
+    }else{
+        field={"updatedAt":sorting}
+    }
+    const tutorial =Tutorial.find().sort(field).then(tutorial => {
         res.json({
             tutorial:tutorial
         })
@@ -12,6 +24,8 @@ exports.getTutorial = (req, res) => {
     }).catch(err => {
         console.log(err);
     })
+    // console.log(req.query.sorting);
+    // console.log(req.query.at);
 };
 exports.getSortedTutorial = (req, res) => {
    //console.log("hello",req.body);
@@ -105,7 +119,19 @@ exports.findByTitleTutorial=async(req, res)=>{
     try{
         let title=req.params.title;
         //res.send(id)
-        const tutorial=await Tutorial.find({title:title}).then(tutorial => {
+        var sorting=req.query.sorting;
+        if (sorting=="asc") {
+            sorting=1;    
+        }else{
+            sorting=-1;
+        }
+        var field=req.query.at;
+        if (field=="createdAt"){
+            field={"createdAt":sorting}
+        }else{
+            field={"updatedAt":sorting}
+        }
+        const tutorial=await Tutorial.find({title:title}).sort(field).then(tutorial => {
             if(tutorial==null){
                 res.send("Tutorial Not Found");
             }else{

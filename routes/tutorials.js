@@ -39,6 +39,36 @@ const idLength = 8;
           "produces": [
               "application/json"
             ],
+            "parameters": [
+              {
+                  "name":"sorting",
+                  "in":"query",
+                  "description":"sort by [asc,desc]",
+                  "required": true,
+                  "type":"string",
+                  "schema": {
+                    "type":"string",
+                    "enum":[
+                    "asc","desc"
+                  ]
+                  }
+
+              },
+              {
+                  "name":"at",
+                  "in":"query",
+                  "description":"sort by [field name]",
+                  "required": true,
+                  "type":"string",
+                  "schema": {
+                    "type":"string",
+                    "enum":[
+                    "createdAt","updatedAt"
+                  ]
+                  }
+
+              }
+          ],
           "responses": {
             "200": {
               "description": "successful operation",
@@ -130,6 +160,34 @@ const idLength = 8;
                   "required": true,
                   "type":"string"
                   
+
+              },
+               {
+                  "name":"sorting",
+                  "in":"query",
+                  "description":"sort by [asc,desc]",
+                  "required": true,
+                  "type":"string",
+                  "schema": {
+                    "type":"string",
+                    "enum":[
+                    "asc","desc"
+                  ]
+                  }
+
+              },
+              {
+                  "name":"at",
+                  "in":"query",
+                  "description":"sort by [field name]",
+                  "required": true,
+                  "type":"string",
+                  "schema": {
+                    "type":"string",
+                    "enum":[
+                    "createdAt","updatedAt"
+                  ]
+                  }
 
               }
           ],
