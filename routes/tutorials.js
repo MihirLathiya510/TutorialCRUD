@@ -1,9 +1,10 @@
 const express = require('express');
+
 const router = express.Router();
 
-const tutorialController=require('../controller/tutorials')
-const idLength = 8;
-/** 
+const tutorialController = require('../controller/tutorials');
+
+/**
  * @swagger
  * {
     "tags": [
@@ -12,12 +13,10 @@ const idLength = 8;
         "description": "Everything about managing Tutorials"
       }
     ],
-     "definitions": { 
+     "definitions": {
         "Tutorials": {
           "type": "object",
-         
           "properties": {
-            
             "title": {
               "type": "string"
             },
@@ -27,7 +26,6 @@ const idLength = 8;
             "published": {
                 "type": "boolean"
             }
-          
           }
         }
       },
@@ -84,7 +82,6 @@ const idLength = 8;
             }
           }
         }
-        
       },
       "/tutorials/getsorted/sorted/": {
         "get": {
@@ -108,7 +105,6 @@ const idLength = 8;
             }
           }
         }
-        
       },
       "/tutorials/{id}": {
         "get": {
@@ -143,7 +139,6 @@ const idLength = 8;
             }
           }
         }
-        
       },
       "/tutorials/searchbytitle/{title}": {
         "get": {
@@ -159,8 +154,6 @@ const idLength = 8;
                   "description":"title of the tutorial to retrieve",
                   "required": true,
                   "type":"string"
-                  
-
               },
                {
                   "name":"sorting",
@@ -206,7 +199,6 @@ const idLength = 8;
             }
           }
         }
-        
       },
        "/tutorials/post": {
         "post": {
@@ -238,7 +230,6 @@ const idLength = 8;
             }
           }
         }
-        
       },
         "/tutorials/put/{id}": {
         "put": {
@@ -251,8 +242,6 @@ const idLength = 8;
                   "description":"id of the tutorial to retrieve",
                   "required": true,
                   "type":"string"
-                  
-
               }
           ],
           "requestBody": {
@@ -280,7 +269,6 @@ const idLength = 8;
             }
           }
         }
-        
       },
         "/tutorials/delete/{id}": {
         "delete": {
@@ -312,27 +300,21 @@ const idLength = 8;
             }
           }
         }
-        
       }
-     
-     
-     
-      
     }
-    
   }
 */
 
-//get
-router.get('/',tutorialController.getTutorial);
-router.get('/:id',tutorialController.findTutorial);
-router.get('/searchbytitle/:title',tutorialController.findByTitleTutorial);
-router.get('/getsorted/sorted',tutorialController.getSortedTutorial);
-//post
-router.post('/post',tutorialController.postTutorial)
-//put
-router.put("/put/:id",tutorialController.putTutorial);
-//delete
-router.delete("/delete/:id",tutorialController.deleteTutorial);
+// get
+router.get('/', tutorialController.getTutorial);
+router.get('/:id', tutorialController.findTutorial);
+router.get('/searchbytitle/:title', tutorialController.findByTitleTutorial);
+router.get('/getsorted/sorted', tutorialController.getSortedTutorial);
+// post
+router.post('/post', tutorialController.postTutorial);
+// put
+router.put('/put/:id', tutorialController.putTutorial);
+// delete
+router.delete('/delete/:id', tutorialController.deleteTutorial);
 
-module.exports=router;
+module.exports = router;
