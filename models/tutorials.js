@@ -13,7 +13,8 @@ const tutorial =new mongoose.Schema({
         required: true
     },
     published:{
-        type: "boolean"
+        type: "boolean",
+        default: false
     }
     
 },{timestamps: true});

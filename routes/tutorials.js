@@ -250,8 +250,8 @@ const idLength = 8;
                   "in":"path",
                   "description":"id of the tutorial to retrieve",
                   "required": true,
-                  "type":"integer",
-                  "format":"int64"
+                  "type":"string"
+                  
 
               }
           ],
