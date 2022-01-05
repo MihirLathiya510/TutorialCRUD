@@ -71,7 +71,7 @@ exports.putTutorial = async (req, res) => {
           description: resultBody.description,
           published: resultBody.published,
         },
-        { new: true },
+        { new: true }
       ).then((result) => {
         if (!result || result === '') {
           res.send('Tutorial Not Found');

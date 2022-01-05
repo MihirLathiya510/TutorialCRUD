@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint '**/*.js'",
-    "lint:fix": "prettier 'test.js' --write",
+    "lint:fix": "eslint '**/*.js' --fix",
+    "prettier:fix": "prettier '**/*.js' --write",
     "tutorial": "nodemon index.js",
     "prepare": "husky install"
   },
@@ -19,16 +20,14 @@
     "url": "https://github.com/MihirLathiya510/TutorialCRUD/issues"
   },
   "homepage": "https://github.com/MihirLathiya510/TutorialCRUD#readme",
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "**/*.js": [
       "npm run lint",
-      "npm run lint:fix"
-    ]
+      "npm run lint:fix",
+      "npm run prettier:fix",
+      "git add ."
+    ],
+    "*.js": "eslint --cache --fix"
   },
   "dependencies": {
     "@hapi/joi": "^17.1.1",
