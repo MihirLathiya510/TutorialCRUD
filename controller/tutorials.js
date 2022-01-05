@@ -1,8 +1,4 @@
-/* eslint-disable eqeqeq */
-/* eslint-disable quote-props */
-/* eslint-disable prefer-destructuring */
-/* eslint-disable no-shadow */
-/* eslint-disable no-unused-vars */
+
 const express = require('express');
 const Tutorial = require('../models/tutorials');
 const routes = require('../models/tutorials');
@@ -17,14 +13,11 @@ exports.getTutorial = (req, res) => {
   }
   let field = req.query.at;
   if (field == 'createdAt') {
-    // eslint-disable-next-line quote-props
-    field = { 'createdAt': sorting };
+     field = { 'createdAt': sorting };
   } else {
-    // eslint-disable-next-line quote-props
     field = { 'updatedAt': sorting };
   }
   console.log(field);
-  // eslint-disable-next-line no-shadow
   const tutorial = Tutorial.find().sort(field).then((tutorial) => {
     res.json({
       tutorial,
@@ -50,7 +43,6 @@ exports.getSortedTutorial = (req, res) => {
 exports.postTutorial = async (req, res, next) => {
   try {
     const resultvalidated = await validator.swaggerschemasPOST.validateAsync(req.body);
-    // console.log(result.body);
     const tutorial = new Tutorial(resultvalidated);
     tutorial.save().then((results) => {
       res.status(200).json({
@@ -130,7 +122,7 @@ exports.findTutorial = async (req, res) => {
 };
 exports.findByTitleTutorial = async (req, res) => {
   try {
-    // eslint-disable-next-line prefer-destructuring
+   
     const title = req.params.title;
     let sorting = req.query.sorting;
     if (sorting === 'asc') {

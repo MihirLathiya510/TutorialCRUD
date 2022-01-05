@@ -19,5 +19,5 @@ const tutorial = new mongoose.Schema({
   },
 }, { timestamps: true });
 
-// eslint-disable-next-line new-cap
+
 module.exports = new mongoose.model('tutorial', tutorial);

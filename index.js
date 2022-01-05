@@ -1,5 +1,4 @@
-/* eslint-disable quote-props */
-/* eslint-disable no-unused-vars */
+
 const express = require('express');
 const logger = require('morgan');
 
