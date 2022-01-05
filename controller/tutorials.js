@@ -2,6 +2,9 @@
 const Tutorial = require('../models/tutorials');
 
 console.log('djfhdjhfdhfd');
+
+console.log('djfhdjhfdhfd');
+console.log('djfhdjhfdhfd');
 const validator = require('../helper/joischemas');
 
 exports.getTutorial = (req, res) => {
