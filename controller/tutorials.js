@@ -15,7 +15,6 @@ exports.getTutorial = (req, res) => {
   } else {
     field = { updatedAt: sorting };
   }
-  console.log(field);
   const tutorial = Tutorial.find()
     .sort(field)
     .then((result) => {
