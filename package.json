@@ -4,9 +4,9 @@
   "description": "Project 1 :",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint '**/*.js'",
-    "lint:fix": "eslint '**/*.js' --fix",
-    "prettier:fix": "prettier '**/*.js' --write",
+    "lint": "eslint '*.js'",
+    "lint:fix": "eslint '*.js' --fix",
+    "prettier:fix": "prettier '*.js' --write",
     "tutorial": "nodemon index.js",
     "prepare": "husky install"
   },
