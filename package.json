@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "eslint '**/*.js'",
     "lint:fix": "prettier 'test.js' --write",
-    "tutorial": "nodemon index.js"
+    "tutorial": "nodemon index.js",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -24,7 +25,7 @@
     }
   },
   "lint-staged": {
-    "*.js": [
+    "**/*.js": [
       "npm run lint",
       "npm run lint:fix"
     ]
