@@ -70,11 +70,11 @@ exports.putTutorial=async(req,res)=>{
                 description:resultBody.description,
                 published:resultBody.published
             },{new:true}).then((result)=>{
-                if(result==null || tutorial==""){
+                if(result==null || result==""){
                     res.send("Tutorial Not Found");
                 }else{
                     res.json({
-                        tutorial:result
+                      result
                     });
                 }
             });    
@@ -98,11 +98,11 @@ exports.deleteTutorial=(req,res)=>{
          throw new Error("check your id");
     }
     const tutorial = Tutorial.findByIdAndRemove(id).then((result)=>{
-        if(result==null || tutorial==""){
+        if(result==null || result==""){
             res.send("Tutorial Not Found");
         }else{
             res.json({
-                tutorial:result
+                result
             });
         }
     });
@@ -124,7 +124,7 @@ exports.findTutorial=async(req, res)=>{
                 res.send("Tutorial Not Found");
             }else{
                 res.json({
-                    tutorial:tutorial
+                   tutorial
                 });
             }
             
@@ -154,7 +154,7 @@ exports.findByTitleTutorial=async(req, res)=>{
                 res.send("Tutorial Not Found");
             }else{
                 res.json({
-                    tutorial:tutorial
+                    tutorial
                 });
             }
             // console.log();
