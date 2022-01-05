@@ -1,6 +1,5 @@
 const express = require('express');
 
-console.log('hello world');
 const router = express.Router();
 
 const tutorialController = require('../controller/tutorials');
