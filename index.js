@@ -1,31 +1,33 @@
-
 const express = require('express');
 const logger = require('morgan');
 
 const mongoose = require('mongoose');
-const dotenv = require('dotenv').config();
+const dotenv = require('dotenv');
 const swaggerUI = require('swagger-ui-express');
 const swaggerJsDoc = require('swagger-jsdoc');
 const tutorialRoutes = require('./routes/tutorials');
 
+dotenv.config();
 // app area
 const app = express();
 const PORT = process.env.PORT || 3000;
 // swagger
 
 const options = {
-  'definition': {
-    'openapi': '3.0.0',
-    'info': {
-      'title': 'TutorialCRUD',
-      'description': 'CRUD operations related to given task',
-      'version': '1.0.0',
+  definition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'TutorialCRUD',
+      description: 'CRUD operations related to given task',
+      version: '1.0.0',
     },
-    'servers': [{
-      'url': `http://localhost:${PORT}`,
-    }],
+    servers: [
+      {
+        url: `http://localhost:${PORT}`,
+      },
+    ],
   },
-  'apis': ['./routes/*.js'],
+  apis: ['./routes/*.js'],
 };
 const specs = swaggerJsDoc(options);
 

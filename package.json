@@ -4,7 +4,8 @@
   "description": "Project 1 :",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint '**/*.js'",
+    "lint:fix": "prettier 'test.js' --write",
     "tutorial": "nodemon index.js"
   },
   "repository": {
@@ -17,6 +18,17 @@
     "url": "https://github.com/MihirLathiya510/TutorialCRUD/issues"
   },
   "homepage": "https://github.com/MihirLathiya510/TutorialCRUD#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run lint",
+      "npm run lint:fix"
+    ]
+  },
   "dependencies": {
     "@hapi/joi": "^17.1.1",
     "cors": "^2.8.5",
@@ -33,6 +45,13 @@
   "devDependencies": {
     "eslint": "^8.6.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.25.4"
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.5",
+    "prettier": "2.5.1",
+    "prettier-eslint": "^13.0.0",
+    "prettier-eslint-cli": "^5.0.1"
   }
 }

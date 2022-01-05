@@ -1,52 +1,56 @@
-
-const express = require('express');
+/* eslint-disable no-unused-vars */
 const Tutorial = require('../models/tutorials');
-const routes = require('../models/tutorials');
 const validator = require('../helper/joischemas');
 
 exports.getTutorial = (req, res) => {
-  let sorting = req.query.sorting;
+  let { sorting } = req.query;
   if (sorting === 'asc') {
     sorting = 1;
   } else {
     sorting = -1;
   }
   let field = req.query.at;
-  if (field == 'createdAt') {
-     field = { 'createdAt': sorting };
+  if (field === 'createdAt') {
+    field = { createdAt: sorting };
   } else {
-    field = { 'updatedAt': sorting };
+    field = { updatedAt: sorting };
   }
   console.log(field);
-  const tutorial = Tutorial.find().sort(field).then((tutorial) => {
-    res.json({
-      tutorial,
+  const tutorial = Tutorial.find()
+    .sort(field)
+    .then((result) => {
+      res.json({
+        result,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
     });
-  }).catch((err) => {
-    console.log(err);
-  });
 };
 exports.getSortedTutorial = (req, res) => {
   const sort = { updatedAt: -1 };
-  const tutorial = Tutorial.find().sort(sort).then((tutorial) => {
-    if (!tutorial || tutorial == '') {
-      res.send('Tutorial Not Found');
-    } else {
-      res.json({
-        tutorial,
-      });
-    }
-  }).catch((err) => {
-    console.log(err);
-  });
+  const tutorial = Tutorial.find()
+    .sort(sort)
+    .then((result) => {
+      if (!result || result === '') {
+        res.send('Tutorial Not Found');
+      } else {
+        res.json({
+          result,
+        });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
-exports.postTutorial = async (req, res, next) => {
+exports.postTutorial = async (req, res) => {
   try {
     const resultvalidated = await validator.swaggerschemasPOST.validateAsync(req.body);
     const tutorial = new Tutorial(resultvalidated);
-    tutorial.save().then((results) => {
+    tutorial.save().then((result) => {
       res.status(200).json({
-        results,
+        result,
       });
     });
   } catch (error) {
@@ -60,12 +64,16 @@ exports.putTutorial = async (req, res) => {
       throw new Error('check your id');
     } else {
       const resultBody = await validator.swaggerschemasPUT.validateAsync(req.body);
-      const tutorial = await Tutorial.findByIdAndUpdate(id, {
-        title: resultBody.title,
-        description: resultBody.description,
-        published: resultBody.published,
-      }, { new: true }).then((result) => {
-        if (!result || result == '') {
+      const tutorial = await Tutorial.findByIdAndUpdate(
+        id,
+        {
+          title: resultBody.title,
+          description: resultBody.description,
+          published: resultBody.published,
+        },
+        { new: true },
+      ).then((result) => {
+        if (!result || result === '') {
           res.send('Tutorial Not Found');
         } else {
           res.json({
@@ -89,7 +97,7 @@ exports.deleteTutorial = (req, res) => {
       throw new Error('check your id');
     }
     const tutorial = Tutorial.findByIdAndRemove(id).then((result) => {
-      if (!result || result == '') {
+      if (!result || result === '') {
         res.send('Tutorial Not Found');
       } else {
         res.json({
@@ -108,7 +116,7 @@ exports.findTutorial = async (req, res) => {
       throw new Error('check your id');
     }
     const tutorial = await Tutorial.findById(id).then((result) => {
-      if (!result || result == '') {
+      if (!result || result === '') {
         res.send('Tutorial Not Found');
       } else {
         res.json({
@@ -122,9 +130,8 @@ exports.findTutorial = async (req, res) => {
 };
 exports.findByTitleTutorial = async (req, res) => {
   try {
-   
-    const title = req.params.title;
-    let sorting = req.query.sorting;
+    const { title } = req.params;
+    let { sorting } = req.query;
     if (sorting === 'asc') {
       sorting = 1;
     } else {
@@ -132,19 +139,21 @@ exports.findByTitleTutorial = async (req, res) => {
     }
     let field = req.query.at;
     if (field === 'createdAt') {
-      field = { 'createdAt': sorting };
+      field = { createdAt: sorting };
     } else {
-      field = { 'updatedAt': sorting };
+      field = { updatedAt: sorting };
     }
-    const tutorial = await Tutorial.find({ title }).sort(field).then((result) => {
-      if (!result || result == '') {
-        res.send('Tutorial Not Found');
-      } else {
-        res.json({
-          result,
-        });
-      }
-    });
+    const tutorial = await Tutorial.find({ title })
+      .sort(field)
+      .then((result) => {
+        if (!result || result === '') {
+          res.send('Tutorial Not Found');
+        } else {
+          res.json({
+            result,
+          });
+        }
+      });
   } catch (error) {
     res.status(422).send(error.message);
   }
