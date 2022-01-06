@@ -4,7 +4,6 @@ const { combine, timestamp, errors, json } = format;
 
 const loggerProd = createLogger({
   format: combine(timestamp(), errors({ stack: true }), json()),
-  defaultMeta: { service: 'user-service' },
   transports: [new transports.Console()],
 });
 
