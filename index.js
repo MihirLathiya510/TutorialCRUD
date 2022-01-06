@@ -7,6 +7,8 @@ const swaggerUI = require('swagger-ui-express');
 const swaggerJsDoc = require('swagger-jsdoc');
 const tutorialRoutes = require('./routes/tutorials');
 
+console.log('hello');
+
 dotenv.config();
 // app area
 const app = express();
