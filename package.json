@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint '*.js'",
+    "cz": "",
     "lint:fix": "eslint '*.js' --fix",
     "prettier:fix": "prettier '*.js' --write",
     "tutorial": "nodemon index.js",
@@ -15,7 +16,7 @@
     "url": "git+https://github.com/MihirLathiya510/TutorialCRUD.git"
   },
   "author": "Mihir",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/MihirLathiya510/TutorialCRUD/issues"
   },
