@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint '*.js'",
-    "cz": "",
+    "cz": "cz",
     "lint:fix": "eslint '*.js' --fix",
     "prettier:fix": "prettier '*.js' --write",
     "tutorial": "nodemon index.js",
