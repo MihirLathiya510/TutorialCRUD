@@ -32,27 +32,6 @@ This task is all about to learn the NODE.JS, And all the api works with document
   -- Able to search by Title
   -- Able to sort by crated/updated date (Default updated DESC)
 
-## Installation
-
-TutorialCRUD requires [Node.js](https://nodejs.org/) v17 to run.
-
-Install the dependencies and devDependencies and start the server.
-
-```sh
-// in TutorialCRUD Directory
-npm i
-```
-
-For Run the app .
-
-```sh
-npm run tutorial
-```
-
-> Note: this uses the Swagger for documentation, runs on port 3000
-
-![swagger.png](assets/img/swagger.png?raw=true 'swagger')
-
 # Dependencies and Dev-Dependencies
 
 - "dotenv": "^10.0.0"
@@ -75,6 +54,27 @@ npm run tutorial
 - "prettier": "2.5.1"
 - "prettier-eslint": "^13.0.0"
 - "prettier-eslint-cli": "^5.0.1"
+
+## Installation
+
+TutorialCRUD requires [Node.js](https://nodejs.org/) v17 to run.
+
+Install the dependencies and devDependencies and start the server.
+
+```sh
+// in TutorialCRUD Directory
+npm i
+```
+
+For Run the app .
+
+```sh
+npm run tutorial
+```
+
+> Note: this uses the Swagger for documentation, runs on port 3000 with path 'http://localhost:3000/swagger'
+
+![swagger.png](assets/img/swagger.png?raw=true 'swagger')
 
 ## License
 
