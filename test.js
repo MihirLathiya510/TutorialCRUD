@@ -1,7 +1,5 @@
-const logger = require('./logger/prod-logger');
+const logger = require("./logger/prod-logger");
 
-logger.error(new Error('testing the winston'));
-logger.info('testing the winston');
-logger.warn('testing the winston');
-
-logger.info('test test test');
+logger.error(new Error("testing the winston"));
+logger.info("testing the winston");
+logger.warn("testing the winston");
